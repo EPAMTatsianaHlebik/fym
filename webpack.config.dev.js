@@ -1,7 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports ={
     mode: 'development',
@@ -33,12 +32,15 @@ module.exports ={
         {
             test: /\.css$/,
             use:  [ MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader' ]
+        },
+        {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: [
+                'file-loader',
+            ],
         }]
     },
     plugins: [
-        new CleanWebpackPlugin({
-            cleanAfterEveryBuildPatterns: ['dev']
-        }),
         new MiniCssExtractPlugin({
           filename: '[name].css',
           chunkFilename: '[name]'.css

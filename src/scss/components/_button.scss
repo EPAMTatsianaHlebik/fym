@@ -1,0 +1,21 @@
+.btn {
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    background: $colour-rose;
+    border: 1px solid $colour-rose;
+    color: $colour-white;
+    font-size: 1rem;
+    text-transform: uppercase;
+
+    &--secondary {
+        background: rgba($colour-stone, .85);
+        border: 0;
+        color: $colour-rose;
+    }
+
+    &--reset {
+        background: colour-slate;
+        border: 1px solid $colour-rose;
+        color: $colour-rose;
+    }
+}

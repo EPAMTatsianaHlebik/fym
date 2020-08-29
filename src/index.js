@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from "./js/check";
+import App from "./js/app";
 import "./js/sum";
 
-import "./css/main.css";
+import 'normalize.css'
 import "./scss/main.scss";
 
 const rootElement = document.getElementById("root");

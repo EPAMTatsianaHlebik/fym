@@ -1,13 +1,7 @@
-h1{
-    color: olive;
-    text-align: left;
-}
+// main.scss
+@import 'variables';
+@import 'base';
+@import 'layout';
 
-h3{    
-    color: olive;
-    text-align: center;
-}
-
-.wrapper {
-    display: flex;
-}
+@import 'components/button';
+@import 'components/general';
