@@ -1,18 +1,29 @@
-import React from "react";
+import React, { Component } from "react";
 import SearchElement from "./search-element";
 import FormContainer from "./form-container";
 import Button from "../Components/button";
-import AddMovieBox from "../Layout-Components/add-movie-box"
+import AddMovieContainer from "./addMovieContainer";
+import AddMovieBox from "../Layout-Components/add-movie-box";
 
-export default function HeaderContainer() {
+
+export default function HeaderContainer({header, onShowModal}) {
   return (
     <>
       <FormContainer>
-        <SearchElement />
+        <h1> {header.title} </h1>
+        <SearchElement search={header.search} />
       </FormContainer>
       <AddMovieBox>
-        <Button className="btn btn--secondary" text="+ Add Movie" />
+        <AddMovieContainer>
+          <Button 
+            className="btn--secondary" 
+            assistiveText={header.addBtn.addBtnAssistiveText}
+            onClick = {onShowModal}
+            >
+              {header.addBtn.addBtnText}
+            </Button>
+        </AddMovieContainer>
       </AddMovieBox>
     </>
-  )
+  );
 }

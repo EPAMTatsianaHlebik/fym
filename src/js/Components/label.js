@@ -5,7 +5,7 @@ export default function Label(props) {
   return (
     <>
       <label htmlFor={props.for}>
-        <h1>{props.title}</h1>
+        {props.title}
       </label>
     </>
   )

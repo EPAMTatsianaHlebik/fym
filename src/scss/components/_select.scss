@@ -1,0 +1,30 @@
+.multi-select {
+    --rmsc-main: #424242 !important;
+    --rmsc-hover: #555555 !important;
+    --rmsc-selected: #555555 !important;
+    --rmsc-border: #424242 !important;
+    --rmsc-gray: #6d6d6d !important;
+    --rmsc-bg: #424242 !important;
+    --rmsc-p: 1rem !important; /* Spacing */
+    --rmsc-radius: .5rem !important;
+    --rmsc-h: 3rem !important; /* Height */
+    margin-bottom: 1.5rem;
+
+    input[type="checkbox"]:checked{
+        background-color: $colour-rose;
+    }
+
+    .dropdown-heading-dropdown-arrow.gray {
+        color: $colour-rose;
+        fill: $colour-rose;
+    }
+    .panel-content {
+        padding: .5rem 0 1rem;
+    }
+
+    label {
+        padding: .5rem 1rem !important;
+        margin: 0;
+    }
+  }
+

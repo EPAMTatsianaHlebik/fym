@@ -1,0 +1,61 @@
+.react-date-picker {
+    width: 100%;
+    color: $colour-silver;
+    margin-bottom: 1.5rem;
+
+    &__wrapper {
+        padding: 1rem;
+        border-radius: .5rem;
+        background-color: rgba($colour-slate, .8);
+        border: 1px solid rgba($colour-slate, .8);
+    }
+
+    &__button {
+        padding: 0;
+    
+        svg {
+            stroke: $colour-rose;
+        }
+    }
+
+    .react-calendar {
+        border-radius: .5rem;
+        background-color: $colour-slate;
+        border-color: $colour-rose;
+        color: $colour-silver;
+
+        &__tile {
+            color: $colour-silver;
+            &:hover {
+                background-color: $colour-stone;
+            }
+
+            &:disabled {
+                background-color: $colour-stone;
+                color: rgba($colour-slate, .8);
+            }
+        }
+
+        &__navigation button {
+            border-radius: .5rem;
+            background-color: $colour-slate;
+            color: $colour-rose;
+
+            & [disabled] {
+                background-color: $colour-stone;
+                color: $colour-silver;
+            }
+
+            &:hover,
+            &:enabled:focus {
+                background-color: $colour-slate;
+            }
+        }
+
+        &__tile--now {
+            background-color: $colour-rose;
+            color: $colour-white;
+        }
+    }
+  }
+

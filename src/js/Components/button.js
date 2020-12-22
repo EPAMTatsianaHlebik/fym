@@ -1,17 +1,43 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
+import AssistiveText from "./assistive-text";
 
 export default function Button(props) {
+
+  const classes = classnames (
+    'btn',
+    props.className,
+    props.active
+  );
+
   return (
-    <>
-      <button className={props.className}>{props.text}</button>
-    </>
+
+    <button 
+      className = {classes}
+      disabled = {props.disabled}
+      onClick = {props.onClick}
+    >
+      <AssistiveText>{props.assistiveText}</AssistiveText>  
+      {props.children}
+    </button>
   )
 }
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired
+  children: PropTypes.node,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  assistiveText: PropTypes.string,
+  disabled: PropTypes.bool,
+  active: PropTypes.bool
 }
+
 Button.defaultProps = {
-  text: "Missing text"
+  children: "Default Button",
+  onClick: () => {},
+  className: '',
+  assistiveText: '',
+  disabled: false,
+  active: false
 }

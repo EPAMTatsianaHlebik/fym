@@ -1,83 +1,60 @@
-import React from "react";
+import React, { Component } from "react";
 import MovieListPanel from "./movie-list-panel";
 import MovieListBox from "../Layout-Components/movie-list-box";
 import TotalMovies from "../Components/total-movies";
 import MovieCard from "../Components/movie-card";
-import politician from "../../img/politician.jpg"
-import matrix from "../../img/the-matrix.jpg"
-import dueDate from "../../img/due-date.jpg"
+import Icon from "../Components/icon";
+import ModalCard from "../Components/modal-card";
 
-let movies = [
-  {
-    title: "The Matrix",
-    description: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-    id: 'j123',
-    src: matrix,
-    ganre: 'Action, Sci-Fi',
-    releasedate: '1999'
-  },
-  {
-    title: "Due Date",
-    description: "High-strung father-to-be Peter Highman is forced to hitch a ride with aspiring actor Ethan Tremblay on a road trip in order to make it to his child's birth on time.",
-    id: 'e4r2w',
-    src: dueDate,
-    ganre: 'Comedy, Drama ',
-    releasedate: '2010'
-  },
-  {
-    title: "The Politician",
-    description: "Payton Hobart, a student from Santa Barbara, has known since age seven that he's going to be President of the United States.",
-    id: '6yt4e',
-    src: politician,
-    ganre: 'Comedy, Drama ',
-    releasedate: '2019'
-  },
-  {
-    title: "The Politician 2",
-    description: "Payton Hobart, a student from Santa Barbara, has known since age seven that he's going to be President of the United States.",
-    id: '6y4t4e',
-    src: politician,
-    ganre: 'Comedy, Drama ',
-    releasedate: '2019'
-  },
-  {
-    title: "The Matrix",
-    description: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-    id: 'j1253',
-    src: matrix,
-    ganre: 'Action, Sci-Fi',
-    releasedate: '1999'
-  },
-  {
-    title: "Due Date",
-    description: "High-strung father-to-be Peter Highman is forced to hitch a ride with aspiring actor Ethan Tremblay on a road trip in order to make it to his child's birth on time.",
-    id: 'e4r2w7',
-    src: dueDate,
-    ganre: 'Comedy, Drama ',
-    releasedate: '2010'
+class MovieList extends Component {
+  state = {
+    showModal: false,
+    dataModal: {
+      title: ""
+    }
+  };
+
+  getModal = (e, data) => {
+    e.preventDefault();
+    this.setState({ showModal: true, dataModal: data });
+  };
+
+  hideModal = () => {
+    this.setState({ showModal: false });
+  };
+
+  render() {
+    return (
+      <>
+        {/* <MovieListPanel /> */}
+        <TotalMovies amount={this.props.movies.length} text="movies found"></TotalMovies>
+        <MovieListBox>
+          {this.props.movies.map((movie) =>(
+            <MovieCard
+            title = {movie.title}
+            description = {movie.description}
+            src = {movie.src}
+            ganre = {movie.ganre}
+            releasedate = {movie.releasedate}
+            key = {movie.id}>
+              
+              <Icon className="card-icon" text="..." 
+              onClick={(e) => this.getModal(e, movie)}/>
+
+            {this.state.showModal & this.state.dataModal.title == movie.title ? 
+              <ModalCard
+                   show={this.state.showModal}
+                   onHide={this.hideModal}
+                   onShowModalEdit={this.props.onShowModalEdit}
+                   onShowModalDelete={this.props.onShowModalDelete} /> 
+            : null}
+            </MovieCard>
+          ))
+          }
+        </MovieListBox>
+      </>
+    )
   }
-]
-console.log (movies);
-
-export default function MovieList() {
-  return (
-    <>
-    <script>console.log (movies);</script>
-      {/* <MovieListPanel /> */}
-      <TotalMovies amount={movies.length} text="movies found"></TotalMovies>
-      <MovieListBox>
-        {movies.map((movie) =>(
-          <MovieCard
-          title = {movie.title}
-          description = {movie.description}
-          src = {movie.src}
-          ganre = {movie.ganre}
-          releasedate = {movie.releasedate}
-          key = {movie.id}
-        />
-        ))
-        }
-      </MovieListBox>
-    </>
-  )
 }
+
+export default MovieList

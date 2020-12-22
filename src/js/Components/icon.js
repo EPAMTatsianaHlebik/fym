@@ -1,9 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default function Icon(props) {
-  return (
-    <>
-      <span className={props.className}>{props.text}</span>
-    </>
-  )
+class Icon extends Component {
+  render(){
+    return (
+      <>
+        <a href="#" className={this.props.className} onClick = {this.props.onClick}>{this.props.text}</a>
+      </>
+    ) 
+  }
 }
+
+export default Icon

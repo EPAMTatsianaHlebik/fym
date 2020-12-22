@@ -1,0 +1,32 @@
+.overlay {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba($colour-coal, .5);
+    overflow-y: auto;
+}
+
+.modal {
+    position: absolute;
+    z-index: 101;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36rem;
+    background: $colour-coal;
+    box-shadow: 0 0 3rem 0 rgba(0,0,0,1);
+    padding: 3.5rem 3.5rem 2rem;
+    margin-bottom: 2 rem;
+
+    label {
+        color: $colour-rose;
+    }
+
+    form>input{
+        box-sizing: border-box;
+        width: 100%;
+    }
+}

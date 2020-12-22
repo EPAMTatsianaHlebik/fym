@@ -1,0 +1,24 @@
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-size: 1.25rem;
+    font-weight: 100;
+    form>&{
+        text-transform: uppercase;
+    }
+}
+
+input[type=text] {
+    padding: 1rem;
+    background-color: rgba($colour-slate, .8);
+    border: 1px solid rgba($colour-slate, .8);
+    border-radius: .25rem;
+    color: $colour-white;
+
+    // &:-internal-autofill-selected {
+    //     background-color: rgba($colour-slate, .8);
+    //     border: 1px solid rgba($colour-slate, .8);
+    //     color: $colour-white;
+    // }
+}
