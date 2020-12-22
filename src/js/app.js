@@ -198,10 +198,15 @@ class App extends Component {
             <Overlay>
               <ModalBox
                   onHide={this.hideModal} >
-                    
-                <FormAddMovieContainer id={this.state.addMovieModal.id} addMovieModal={this.state.addMovieModal} />
-                <FormEditMovieContainer id={this.state.editMovieModal.id} editMovieModal={this.state.editMovieModal} />
-                <FormDeleteMovieContainer id={this.state.deleteMovieModal.id} deleteMovieModal={this.state.deleteMovieModal} />
+                    {this.state.activeModal == this.state.addMovieModal.id &&(
+                      <FormAddMovieContainer id={this.state.addMovieModal.id} addMovieModal={this.state.addMovieModal} />
+                    )}
+                    {this.state.activeModal == this.state.editMovieModal.id &&(
+                      <FormEditMovieContainer id={this.state.editMovieModal.id} editMovieModal={this.state.editMovieModal} />
+                    )}
+                    {this.state.activeModal == this.state.deleteMovieModal.id &&(
+                      <FormDeleteMovieContainer id={this.state.deleteMovieModal.id} deleteMovieModal={this.state.deleteMovieModal} />
+                    )}
                 
               </ModalBox>
             </Overlay>

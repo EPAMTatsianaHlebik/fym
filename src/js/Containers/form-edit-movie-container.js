@@ -10,6 +10,8 @@ export default function FormEditMovieContainer({editMovieModal}) {
     <>
       <form>
         <legend><h1>{editMovieModal.legend}</h1></legend>
+          <div className="label">Movie id</div>
+          <div>MO32675843IG</div>
           <Label for="add-movie-title" title={editMovieModal.form.aMovieTitle.title} />
           <InputText className="margin-b-3" id="add-movie-title" placeholder={editMovieModal.form.aMovieTitle.placeholder} />
 
